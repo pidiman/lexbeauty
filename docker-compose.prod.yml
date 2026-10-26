@@ -1,0 +1,20 @@
+# Produkcia na oracle-free-1: web za Caddy (sieť „web“), verejne na https://lexbeauty.pidiman.sk
+# docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+services:
+  web:
+    init: true
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?Nastavte ADMIN_TOKEN v .env}
+      TRUST_PROXY: "1"
+    # len pre lokálny test na serveri (curl http://127.0.0.1:8093), verejne ide cez Caddy
+    ports: !override
+      - "127.0.0.1:8093:3000"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

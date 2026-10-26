@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Rezervácie – administrácia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .admin { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    .admin__bar { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+    .admin__bar select, .admin__login input { font: inherit; padding: .6rem .9rem; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+    .admin__login { display: flex; gap: .6rem; max-width: 520px; margin: 4rem auto; }
+    .admin__login input { flex: 1; }
+    .table-wrap { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+    th, td { padding: .75rem .9rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    tr:last-child td { border-bottom: 0; }
+    .badge { display: inline-block; padding: .2rem .6rem; border-radius: 999px; font-size: .72rem; font-weight: 600; }
+    .badge--nova { background: #f3e6cf; color: #7a5a1e; }
+    .badge--potvrdena { background: #dfeadb; color: #3c6234; }
+    .badge--zrusena { background: #eee; color: #888; }
+    td select { font: inherit; font-size: .8rem; padding: .3rem; border-radius: 8px; border: 1px solid var(--line); }
+    .sync { font-size: .8rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="admin">
+    <p class="nav__logo">Beauty <span>by</span> Lex</p>
+    <h2>Rezervácie</h2>
+
+    <form class="admin__login" id="login" hidden>
+      <input type="password" name="token" placeholder="Admin token" required autocomplete="current-password">
+      <button class="btn" type="submit">Prihlásiť</button>
+    </form>
+
+    <section id="app" hidden>
+      <div class="admin__bar">
+        <select id="filter">
+          <option value="">Všetky</option>
+          <option value="nova">Nové</option>
+          <option value="potvrdena">Potvrdené</option>
+          <option value="zrusena">Zrušené</option>
+        </select>
+        <span class="sync" id="sync-info"></span>
+        <div style="display:flex;gap:.5rem">
+          <button class="btn btn--ghost btn--small" id="sync-btn">Synchronizovať Booqme</button>
+          <button class="btn btn--ghost btn--small" id="logout">Odhlásiť</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Termín</th><th>Služba</th><th>Klient</th><th>Kontakt</th><th>Poznámka</th><th>Stav</th><th>Vytvorené</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="/admin.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    container_name: lexbeauty
+    ports:
+      - "${HOST_PORT:-3090}:3000"
+    environment:
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-zmen-ma}
+      STUDIO_PHONE: ${STUDIO_PHONE:-}
+    volumes:
+      - lexbeauty-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  lexbeauty-data:

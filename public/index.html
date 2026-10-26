@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LEX | Kozmetické štúdio Stupava – Beauty by Lex</title>
+  <meta name="description" content="Kozmetické štúdio v Stupave. Ošetrenia pleti Algotherm a Medik8, KOBIDO masáž, chemické peelingy, mezoterapia a laminácia obočia a mihalníc. Online rezervácia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23f3efe9'/><text x='32' y='44' font-family='Georgia' font-size='34' text-anchor='middle' fill='%237a6e62'>L</text></svg>">
+</head>
+<body>
+  <header class="nav" id="top">
+    <a href="#top" class="nav__logo" aria-label="Beauty by Lex – domov">Beauty <span>by</span> Lex</a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav__links">
+      <a href="#osetrenia">Ošetrenia</a>
+      <a href="#o-mne">O mne</a>
+      <a href="#cennik">Cenník</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#rezervacia" class="btn btn--small">Rezervovať</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__text">
+        <p class="eyebrow">Kozmetické štúdio · Stupava</p>
+        <h1>Starostlivosť<br>o&nbsp;pleť <em>na mieru</em></h1>
+        <p class="lead">Profesionálne ošetrenia pleti s&nbsp;luxusnou francúzskou kozmetikou Algotherm a&nbsp;britskou Medik8, japonská liftingová masáž KOBIDO a&nbsp;laminácia obočia a&nbsp;mihalníc.</p>
+        <div class="hero__cta">
+          <a href="#rezervacia" class="btn">Rezervovať termín</a>
+          <a href="#osetrenia" class="btn btn--ghost">Pozrieť ošetrenia</a>
+        </div>
+        <p class="hero__next" id="next-slot" hidden></p>
+      </div>
+      <figure class="hero__img">
+        <img src="/img/lex.jpg" alt="Alexandra – kozmetička štúdia LEX" width="500" height="674">
+        <figcaption><span class="script">Beauty by Lex</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="brands" aria-label="Značky">
+      <span>Algotherm</span><i></i><span>Medik8</span><i></i><span>BioRePeel</span><i></i><span>KOBIDO</span>
+    </section>
+
+    <section class="section" id="osetrenia">
+      <div class="section__head">
+        <p class="eyebrow">Ponuka</p>
+        <h2>Ošetrenia</h2>
+        <p class="section__sub">Každé ošetrenie začína konzultáciou a&nbsp;je prispôsobené typu a&nbsp;stavu vašej pleti.</p>
+      </div>
+      <div class="filters" id="filters" role="tablist"></div>
+      <div class="treatments" id="treatments"></div>
+    </section>
+
+    <section class="lymph">
+      <div class="lymph__inner">
+        <div class="lymph__title">
+          <h2>Lymfatická</h2>
+          <p class="script">masáž tváre</p>
+        </div>
+        <ul class="lymph__list" id="lymph"></ul>
+      </div>
+    </section>
+
+    <section class="section about" id="o-mne">
+      <figure class="about__img"><img src="/img/kobido.jpg" alt="KOBIDO masáž tváre" loading="lazy"></figure>
+      <div class="about__text">
+        <p class="eyebrow">O mne</p>
+        <h2>Ahoj, som Lex</h2>
+        <p>V&nbsp;mojom štúdiu v&nbsp;Stupave sa venujem kozmetickým ošetreniam pleti, masážam tváre a&nbsp;úprave obočia a&nbsp;mihalníc. Pracujem s&nbsp;overenými profesionálnymi značkami <strong>Algotherm</strong> a&nbsp;<strong>Medik8</strong>.</p>
+        <p>Mojím cieľom je, aby ste odchádzali s&nbsp;rozžiarenou pleťou a&nbsp;pocitom, že ste si oddýchli. Každé ošetrenie preto skladám na mieru – od hĺbkového čistenia, cez chemické peelingy a&nbsp;mezoterapiu, až po relaxačnú KOBIDO masáž.</p>
+        <ul class="about__facts">
+          <li><strong>15+</strong><span>ošetrení</span></li>
+          <li><strong>2</strong><span>prémiové značky</span></li>
+          <li><strong>1:1</strong><span>individuálny prístup</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section pricing" id="cennik">
+      <div class="section__head">
+        <p class="eyebrow">Aktuálne z rezervačného systému</p>
+        <h2>Cenník</h2>
+      </div>
+      <div class="pricing__grid" id="pricing"><p class="muted">Načítavam cenník…</p></div>
+      <p class="muted small center" id="pricing-sync"></p>
+    </section>
+
+    <section class="section booking" id="rezervacia">
+      <div class="section__head">
+        <p class="eyebrow">Online rezervácia</p>
+        <h2>Rezervujte si termín</h2>
+        <p class="section__sub">Voľné termíny sa načítavajú priamo z&nbsp;rezervačného kalendára štúdia.</p>
+      </div>
+
+      <div class="booking__wrap">
+        <ol class="steps" aria-label="Kroky rezervácie">
+          <li data-step="1" class="is-active">Služba</li>
+          <li data-step="2">Dátum</li>
+          <li data-step="3">Čas</li>
+          <li data-step="4">Údaje</li>
+        </ol>
+
+        <div class="booking__body">
+          <div class="panel" data-panel="1">
+            <div id="service-list" class="service-list"><p class="muted">Načítavam služby…</p></div>
+          </div>
+
+          <div class="panel" data-panel="2" hidden>
+            <div class="calendar" id="calendar"></div>
+          </div>
+
+          <div class="panel" data-panel="3" hidden>
+            <p class="panel__label" id="slots-label"></p>
+            <div class="slots" id="slots"></div>
+          </div>
+
+          <form class="panel form" data-panel="4" id="booking-form" hidden novalidate>
+            <div class="form__row">
+              <label>Meno<input name="firstName" autocomplete="given-name" required></label>
+              <label>Priezvisko<input name="lastName" autocomplete="family-name" required></label>
+            </div>
+            <div class="form__row">
+              <label>Email<input name="email" type="email" autocomplete="email" required></label>
+              <label>Telefón<input name="phone" type="tel" autocomplete="tel" placeholder="+421 9xx xxx xxx" required></label>
+            </div>
+            <label>Poznámka <span class="muted">(napr. zľavový kód, typ pleti)</span><textarea name="note" rows="3" maxlength="500"></textarea></label>
+            <label class="hp" aria-hidden="true">Web<input name="website" tabindex="-1" autocomplete="off"></label>
+            <label class="check"><input type="checkbox" name="consent" required> Súhlasím so spracovaním osobných údajov za účelom rezervácie.</label>
+            <p class="form__error" id="form-error" role="alert" hidden></p>
+            <button class="btn btn--block" type="submit">Odoslať rezerváciu</button>
+          </form>
+
+          <div class="panel done" data-panel="5" hidden>
+            <p class="script">Ďakujem!</p>
+            <h3>Rezervácia bola prijatá</h3>
+            <p id="done-text"></p>
+            <p class="muted small">Termín vám potvrdím emailom alebo telefonicky. Ak chcete mať rezerváciu ihneď potvrdenú v&nbsp;systéme, môžete ju dokončiť aj priamo v&nbsp;Booqme.</p>
+            <div class="hero__cta">
+              <a class="btn btn--ghost" id="done-booqme" target="_blank" rel="noopener">Otvoriť Booqme</a>
+              <button class="btn" type="button" id="done-again">Nová rezervácia</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="summary" id="summary">
+          <h3>Vaša rezervácia</h3>
+          <dl>
+            <dt>Služba</dt><dd data-sum="service">—</dd>
+            <dt>Dĺžka</dt><dd data-sum="duration">—</dd>
+            <dt>Dátum</dt><dd data-sum="date">—</dd>
+            <dt>Čas</dt><dd data-sum="time">—</dd>
+            <dt>Cena</dt><dd data-sum="price">—</dd>
+          </dl>
+          <button class="link" type="button" id="back-btn" hidden>← Späť</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section contact" id="kontakt">
+      <div class="contact__card">
+        <p class="eyebrow">Kontakt</p>
+        <h2>Navštívte ma v&nbsp;Stupave</h2>
+        <ul class="contact__list" id="contact"></ul>
+        <a href="#rezervacia" class="btn">Rezervovať termín</a>
+      </div>
+      <div class="contact__map">
+        <iframe title="Mapa – Okružná 23/A, Stupava" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Okru%C5%BEn%C3%A1%2023%2FA%2C%20Stupava&z=15&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="nav__logo">Beauty <span>by</span> Lex</p>
+    <p class="muted small">LEX | Kozmetické štúdio | Stupava · © <span id="year"></span></p>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
