@@ -250,6 +250,7 @@ $('#booking-form').addEventListener('submit', async (e) => {
     $('#done-text').innerHTML = `<strong>${esc(res.service)}</strong><br>${esc(fmtDate(res.date))} o ${esc(res.time)}`;
     $('#done-booqme').href = res.bookingUrl;
     setStep(5);
+    window.umami?.track('rezervacia', { sluzba: res.service });
   } catch (ex) {
     err.textContent = ex.message;
     err.hidden = false;
