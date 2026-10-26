@@ -24,13 +24,12 @@ Databáza je vo volume `lexbeauty-data`, takže prežije reštart aj nový build
 ### Produkcia – https://lexbeauty.pidiman.sk
 
 Beží na `oracle-free-1` v `~/docker/lexbeauty` za Caddy (`~/docker/proxy/Caddyfile`, blok `lexbeauty.pidiman.sk`).
-Nasadenie novej verzie z lokálneho počítača:
+Každý push do `main` sa nasadí automaticky (`.github/workflows/deploy.yml`): GitHub Actions sa pripojí
+do Tailscale a cez SSH spustí na serveri `deploy.sh`, ktorý stiahne posledný commit a prebuduje kontajner
+(`docker-compose.prod.yml`: sieť `web`, port `127.0.0.1:8093`). Ručne: `ssh oracle-free-1 ~/docker/lexbeauty/deploy.sh`.
 
-```sh
-./deploy.sh
-```
-
-Skript skopíruje súbory cez rsync a prebuduje kontajner (`docker-compose.prod.yml`: sieť `web`, port `127.0.0.1:8093`).
+Secrets repozitára: `TS_OAUTH_CLIENT_ID`, `TS_OAUTH_SECRET`, `DEPLOY_SSH_KEY` (kľúč s `command=` obmedzeným
+na `deploy.sh`), `DEPLOY_KNOWN_HOSTS`, `DEPLOY_HOST` (Tailscale IP servera), `DEPLOY_USER`.
 `ADMIN_TOKEN` je v `~/docker/lexbeauty/.env` na serveri – pri prvom nasadení sa vygeneroval.
 
 | Premenná | Popis |
